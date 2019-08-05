@@ -14,7 +14,7 @@ OC.L10N.register(
     "Generate backup codes" : "Генериши резервне кодове",
     "You created two-factor backup codes for your account" : "Направили сте двофакторске резервне кодове за Ваш налог",
     "Second-factor backup codes" : "Двофакторски резервни кодови",
-    "You have enabled two-factor authentication but have not yet generated backup codes. Be sure to do this in case you lose access to your second factor." : "Укључили сте двофакторску проверу идентитета, али нисте још генерисали резервне кодове. Урадите ово обавезно, за случај да изгубите приступ Вашем другом фактору.",
+    "You enabled two-factor authentication but did not generate backup codes yet. They are needed to restore access to your account in case you lose your second factor." : "Укључили сте двофакторску проверу идентитета, али још нисте генерисали резервне кодове. Они су потребни да вратите приступ Вашем налогу, у случају да изгубите приступ Вашем другом фактору.",
     "Backup code" : "Резервни код",
     "Use backup code" : "Искористи резервни код",
     "Two factor backup codes" : "Двофакторски резервни кодови",
@@ -32,6 +32,7 @@ OC.L10N.register(
     "beforeUpdate" : "преАжурирања",
     "beforeDestroy" : "преУништења",
     "destroyed" : "уништено",
-    "beforeMount" : "преМонтирања"
+    "beforeMount" : "преМонтирања",
+    "You have enabled two-factor authentication but have not yet generated backup codes. Be sure to do this in case you lose access to your second factor." : "Укључили сте двофакторску проверу идентитета, али нисте још генерисали резервне кодове. Урадите ово обавезно, за случај да изгубите приступ Вашем другом фактору."
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");

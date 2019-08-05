@@ -383,6 +383,8 @@ class Folder extends Node implements \OCP\Files\Folder {
 		// Search in batches of 500 entries
 		$searchLimit = 500;
 		$results = [];
+		$searchResultCount = 0;
+		$count = 0;
 		do {
 			$searchResult = $this->recentSearch($searchLimit, $offset, $storageIds, $folderMimetype);
 
@@ -391,6 +393,8 @@ class Folder extends Node implements \OCP\Files\Folder {
 				break;
 			}
 
+			$searchResultCount += count($searchResult);
+
 			$parseResult = $this->recentParse($searchResult, $mountMap, $mimetypeLoader);
 
 			foreach ($parseResult as $result) {
@@ -398,7 +402,8 @@ class Folder extends Node implements \OCP\Files\Folder {
 			}
 
 			$offset += $searchLimit;
-		} while (count($results) < $limit);
+			$count++;
+		} while (count($results) < $limit && ($searchResultCount < (3 * $limit) || $count < 5));
 
 		return array_slice($results, 0, $limit);
 	}
@@ -437,8 +442,13 @@ class Folder extends Node implements \OCP\Files\Folder {
 		}, $result));
 
 		return array_values(array_filter($files, function (Node $node) {
+			$cacheEntry = $node->getMountPoint()->getStorage()->getCache()->get($node->getId());
+			if (!$cacheEntry) {
+				return false;
+			}
 			$relative = $this->getRelativePath($node->getPath());
-			return $relative !== null && $relative !== '/';
+			return $relative !== null && $relative !== '/'
+				&& ($cacheEntry->getPermissions() & \OCP\Constants::PERMISSION_READ) === \OCP\Constants::PERMISSION_READ;
 		}));
 	}
 

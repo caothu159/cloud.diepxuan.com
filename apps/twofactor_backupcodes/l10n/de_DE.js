@@ -14,7 +14,7 @@ OC.L10N.register(
     "Generate backup codes" : "Backup-Codes erzeugen",
     "You created two-factor backup codes for your account" : "Sie haben Zwei-Faktor Sicherungs-Codes für Ihr Konto erstellt",
     "Second-factor backup codes" : "Zweitfaktor Backup-Codes",
-    "You have enabled two-factor authentication but have not yet generated backup codes. Be sure to do this in case you lose access to your second factor." : "Sie haben die Zwei-Faktor-Authentifizierung aktiviert, aber noch keine Backup-Codes generiert. Bitte holen Sie dies für den Fall, dass Sie den Zugriff auf Ihren zweiten Faktor verlieren, nach.",
+    "You enabled two-factor authentication but did not generate backup codes yet. They are needed to restore access to your account in case you lose your second factor." : "Sie haben die Zwei-Faktor-Authentifizierung aktiviert, aber noch keine Backup-Codes erzeugt. Diese werden für den Fall benötigt, dass Sie den Zugriff auf Ihren zweiten Faktor verlieren.",
     "Backup code" : "Backup-Code",
     "Use backup code" : "Verwende Backup-Code",
     "Two factor backup codes" : "Zweifaktor-Backup-Codes",
@@ -32,6 +32,7 @@ OC.L10N.register(
     "beforeUpdate" : "beforeUpdate",
     "beforeDestroy" : "beforeDestroy",
     "destroyed" : "Vernichtet",
-    "beforeMount" : "beforeMount"
+    "beforeMount" : "beforeMount",
+    "You have enabled two-factor authentication but have not yet generated backup codes. Be sure to do this in case you lose access to your second factor." : "Sie haben die Zwei-Faktor-Authentifizierung aktiviert, aber noch keine Backup-Codes generiert. Bitte holen Sie dies für den Fall, dass Sie den Zugriff auf Ihren zweiten Faktor verlieren, nach."
 },
 "nplurals=2; plural=(n != 1);");

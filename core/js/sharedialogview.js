@@ -622,23 +622,8 @@
 							}
 							previousUuid = grouped[i].uuid;
 						}
-						var moreResultsAvailable =
-							(
-								oc_config['sharing.maxAutocompleteResults'] > 0
-								&& Math.min(perPage, oc_config['sharing.maxAutocompleteResults'])
-								<= Math.max(
-									users.length + exactUsers.length,
-									groups.length + exactGroups.length,
-									remoteGroups.length + exactRemoteGroups.length,
-									remotes.length + exactRemotes.length,
-									emails.length + exactEmails.length,
-									circles.length + exactCircles.length,
-									rooms.length + exactRooms.length,
-									lookup.length
-								)
-							);
 
-						deferred.resolve(result, exactMatches, moreResultsAvailable);
+						deferred.resolve(result, exactMatches, false);
 					} else {
 						deferred.reject(result.ocs.meta.message);
 					}
@@ -1053,12 +1038,6 @@
 			this._toggleLoading(false);
 			if (!this._loadingOnce) {
 				this._loadingOnce = true;
-				// the first time, focus on the share field after the spinner disappeared
-				if (!OC.Util.isIE()) {
-					_.defer(function () {
-						self.$('.shareWithField').focus();
-					});
-				}
 			}
 		},
 
